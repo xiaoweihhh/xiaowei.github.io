@@ -4,13 +4,19 @@
   
     
     <entry>
-      <title>test_my_site</title>
-      <link href="/2021/06/24/test-my-site/"/>
-      <url>/2021/06/24/test-my-site/</url>
+      <title>我的博文</title>
+      <link href="/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/"/>
+      <url>/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/</url>
       
-        <content type="html"><![CDATA[<p>hello blog </p><p>百度：<a href="https://www.baidu.com/">https://www.baidu.com</a></p>]]></content>
+        <content type="html"><![CDATA[<img src="/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/test.png" class="" title="test"><p>我的随笔</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
       
     </entry>
     
