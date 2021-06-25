@@ -4,12 +4,37 @@
   
     
     <entry>
+      <title>Windows驱动入门</title>
+      <link href="/2021/06/25/Windows%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8/"/>
+      <url>/2021/06/25/Windows%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<p>下载并安装Windows驱动程序工具包，编写第一个驱动程序。</p><span id="more"></span><h4 id="安装WDK"><a href="#安装WDK" class="headerlink" title="安装WDK"></a>安装WDK</h4><p>微软官方教程：<a href="https://docs.microsoft.com/zh-cn/windows-hardware/drivers/download-the-wdk">https://docs.microsoft.com/zh-cn/windows-hardware/drivers/download-the-wdk</a></p><p>简单来说就是：</p><h5 id="安装Visual-Studio-2019"><a href="#安装Visual-Studio-2019" class="headerlink" title="安装Visual Studio 2019"></a>安装Visual Studio 2019</h5><p><a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16">下载 Visual Studio Community 2019</a></p><p>安装或修改Visual Studio 2019 时，选择“使用 C++ 的桌面开发”工作负荷。选择安装 Windows 10 SDK (10.0.19041.1)</p><p>WDK 默认启用了 Spectre 缓解，需要安装Spectre 缓解库。“单个组件”中搜索 MSVC v142 - VS 2019 C++ x64/x86 Spectre-mitigated libs (v14.xx)</p><h5 id="安装WDK-1"><a href="#安装WDK-1" class="headerlink" title="安装WDK"></a>安装WDK</h5><p><a href="https://go.microsoft.com/fwlink/?linkid=2128854">下载wdk安装程序</a></p><h4 id="Windows驱动程序示例"><a href="#Windows驱动程序示例" class="headerlink" title="Windows驱动程序示例"></a>Windows驱动程序示例</h4><p><a href="https://github.com/Microsoft/Windows-driver-samples">微软在GitHub上的官方驱动程序例子</a></p><h4 id="第一个驱动程序"><a href="#第一个驱动程序" class="headerlink" title="第一个驱动程序"></a>第一个驱动程序</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include &lt;ntifs.h&gt;</span></span><br><span class="line"><span class="comment">//#include &lt;ntddk.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;wdm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">VOID <span class="title">DrvUnload</span><span class="params">(PDRIVER_OBJECT pdriver)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    DbgPrint(<span class="string">&quot;Unload\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">VOID <span class="title">DriveEntry</span><span class="params">(PDRIVER_OBJECT driver, PUNICODE_STRING reg_path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    driver-&gt;DriverUnload = DrvUnload;</span><br><span class="line">    </span><br><span class="line">    DbgPrint(<span class="string">&quot;----%wZ---\n&quot;</span>, reg_path);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="在虚拟机中运行编写的驱动程序"><a href="#在虚拟机中运行编写的驱动程序" class="headerlink" title="在虚拟机中运行编写的驱动程序"></a>在虚拟机中运行编写的驱动程序</h4><ol><li><p>首先要用数字签名工具对编写好的程序进行数字签名</p></li><li><p>之后通过DriverMonitor运行驱动</p></li><li><p>最后通过DebugView进行查看</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 驱动开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的博文</title>
       <link href="/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/"/>
       <url>/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/</url>
       
-        <content type="html"><![CDATA[<img src="/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/test.png" class="" title="test"><p>我的随笔</p>]]></content>
+        <content type="html"><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。1</p><span id="more"></span><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。2</p><img src="/2021/06/24/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/test.png" class="" title="test"><p>我的随笔</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
       
       
         <tags>
@@ -27,7 +52,7 @@
       <link href="/2021/06/24/hello-world/"/>
       <url>/2021/06/24/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       
